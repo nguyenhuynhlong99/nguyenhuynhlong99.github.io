@@ -1,0 +1,188 @@
+// MOBILE RESPONSIVE
+
+
+@media screen and (min-device-width: 374px) and (max-device-width: 480px){
+    body {
+        font-size: 62.5%;
+    }
+
+    header {
+        background: url('./images/mobile/image-header.jpg');
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        height: 537px;
+
+        h1 {
+            font-size: 2.5rem;
+            left: 3%;
+            right: 3%;
+            top: 20%;
+            text-align: center;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        .arrow-down {
+            width: 34px;
+            height: 115px;
+            left: 46%;
+            top: 50%;
+        }
+    }
+    
+    nav {
+        margin: 0 20px;
+        ul {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 14%;
+            left: 15%;
+            right: 15%;
+            background-color: #fff;
+            z-index: 1;
+            padding-bottom: 10px;
+
+            li {
+                padding: 20px;
+
+                a {
+                    color: grey;
+                    font-size: 1rem;
+                }
+            }
+
+            li:last-child {
+                background-color: yellow;
+            }
+        }
+
+        ul::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: -18px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 20px 20px;
+            border-color: transparent transparent #fff transparent;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+    }
+
+    .main-wrapper {
+        flex-direction: column;
+
+        div {
+            width: 100%;
+            max-height: 435px;
+        }
+
+        .main__white-bg {
+            width: 100%;
+            height: 435px;
+
+            .main__white-bg-wrapper {
+                text-align: center;
+                padding: 30px;
+
+                h2 {
+                    font-size: 2.2rem;
+                }
+                p {
+                    font-size: 1.3rem;
+                }
+                a {
+                    font-size: 1.1rem;
+                }
+            }
+        }
+
+        .main__color-bg {
+            width: 100%;
+            height: 600px;
+        }
+    }
+
+    .main-wrapper div:nth-child(1) {
+        order: 2;
+    }
+    .main-wrapper div:nth-child(2) {
+        order: 1;
+    }
+
+    // CLIENT ARTICLE
+    .client-article {
+        height: 100%;
+
+        &__container {
+            // padding-top: 20px;
+
+            h2 {
+                font-size: 1.3rem;
+                letter-spacing: 3px;
+                margin-bottom: 65px;
+                margin-top: 70px;
+            }
+
+        }
+    }
+
+    .client-article__wrapper {
+        flex-direction: column;
+        flex-wrap: wrap;
+        min-width: 100%;
+
+        .client-article__card {
+            // margin: 0 10px;
+            // margin-bottom: 70px;
+            min-width: 100%;
+            min-height: calc(100%/3);
+            padding: 20px 0;
+
+            .client-image {
+
+                img {
+                    min-width: 73px;
+                    min-height: 73px;
+                }
+            }
+
+            p {
+                padding: 15px;
+                transform: translateY(-45px);
+            }
+
+            .client-info {
+                transform: translateY(-50px);
+                span {
+                    font-size: 1rem !important;
+                }
+    
+                small {
+                    font-size: 0.8rem !important;
+                }
+            }
+            
+
+        } 
+    }
+
+    // IMAGES GALLERY
+    .images-gallery {
+        flex-wrap: wrap;
+
+        img {
+            width: calc(100% / 2);
+            height: 190px;
+        }
+    }
+
+    
+}
+
