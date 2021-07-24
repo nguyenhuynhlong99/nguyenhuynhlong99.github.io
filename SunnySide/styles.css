@@ -417,6 +417,10 @@ footer .footer-menu__social ul {
           justify-content: space-between;
 }
 
+footer .footer-menu__social li {
+  list-style: none;
+}
+
 footer .footer-menu__social svg {
   display: block;
   cursor: pointer;
