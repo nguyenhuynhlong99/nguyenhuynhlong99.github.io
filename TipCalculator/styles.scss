@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+// $text-size: 1rem;
+$text-font: "Space Mono", monospace;
+$label-text-color: #516161;
+$placeholder-color: #9cb9b5;
+
+@mixin label {
+  font-size: 3vh;
+  color: $label-text-color;
+  font-weight: 700;
+}
+
+@mixin input-focus {
+  border: 2px solid #2abfac;
+  outline: none;
+}
+
+@mixin input-field {
+  height: 50px;
+  width: 100%;
+  text-align: right;
+  font-family: $text-font;
+  padding: 15px;
+  font-size: 4vh;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 2px solid #f9fafe;
+  background-color: #f3f8fb;
+  color: #004346;
+}
+
+@mixin input-field-error {
+  border-color: #f53e3e;
+}
+
+@mixin tip-btn-color {
+  width: calc((100% / 3) - 10px);
+  height: 50px;
+  font-family: $text-font;
+  font-size: 4vh;
+  color: #fff;
+  background-color: #00474b;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin tip-btn-hover {
+  background-color: #9fe8df;
+  color: #00474b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-size: 62.5%;
+  background-color: #c5e4e7;
+  max-height: 100vh;
+  // min-height: 100vh;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin: 7vh 0;
+}
+
+.app-container {
+  width: 65%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10vh;
+}
+
+form {
+  padding: 40px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bill-field {
+  position: relative;
+  margin-bottom: 3vh;
+}
+
+.bill-error {
+  position: absolute;
+  right: 0;
+  top: 0;
+  @include label;
+  color: #f53e3e;
+  display: none;
+}
+
+.bill-label {
+  display: block;
+  @include label;
+}
+
+#bill-input {
+  @include input-field;
+}
+
+#bill-input.error {
+  @include input-field-error;
+}
+
+#bill-input:focus {
+  @include input-focus;
+}
+
+#bill-input::placeholder {
+  text-align: right;
+  font-family: $text-font;
+  font-size: 4vh;
+}
+
+.bill-icon {
+  position: absolute;
+  top: 53%;
+  left: 4%;
+}
+
+.tip-field {
+  margin-bottom: 3vh;
+
+  p {
+    @include label;
+  }
+
+  .tip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .tip-btn {
+      @include tip-btn-color;
+    }
+
+    .tip-btn:hover {
+      @include tip-btn-hover;
+    }
+
+    .tip-btn.active {
+      background-color: #26c2ad;
+      color: #035257;
+    }
+
+    .tip-custom {
+      width: calc((100% / 3) - 10px);
+      height: 50px;
+      font-family: $text-font;
+      font-size: 4vh;
+      font-weight: 700;
+      color: #003f39;
+      background-color: #f3f8fb;
+      border-radius: 5px;
+      border: none;
+      text-align: right;
+      padding: 15px;
+    }
+
+    .tip-custom::placeholder {
+      text-align: center;
+      color: #5d7a76;
+      font-size: 3vh;
+    }
+
+    .tip-custom:focus {
+      @include input-focus;
+    }
+  }
+}
+
+.people-field {
+  position: relative;
+  p {
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include label;
+    color: #f53e3e;
+    display: none;
+  }
+}
+
+.people-label {
+  display: block;
+  @include label;
+}
+
+#people-input {
+  @include input-field;
+}
+
+#people-input.error {
+  @include input-field-error;
+}
+
+#people-input:focus {
+  @include input-focus;
+}
+
+#people-input::placeholder {
+  text-align: right;
+  font-family: $text-font;
+  font-size: 4vh;
+}
+
+.people-icon {
+  position: absolute;
+  top: 53%;
+  left: 4%;
+}
+
+// RIGHT SIDE
+
+.right-side {
+  width: 50%;
+  background-color: #fff;
+  padding: 40px 20px;
+  border-radius: 15px;
+
+  .result {
+    height: 100%;
+    background-color: #00474b;
+    border-radius: 10px;
+    padding: 5vh 2vw 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .result-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .result-text-container {
+      width: 50%;
+
+      p {
+        color: #fff;
+        font-size: 3vh;
+        font-weight: 700;
+      }
+
+      span {
+        color: #78afb2;
+        font-size: 2vh;
+      }
+    }
+
+    .result-number-container {
+      span {
+        color: #3cc0b2;
+        font-size: 7vh;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .reset-field {
+    .reset-btn {
+      width: 100%;
+      font-size: 3vh;
+      font-weight: 700;
+      line-height: 7vh;
+      text-transform: uppercase;
+      background-color: #0d686d;
+      outline: none;
+      border: none;
+      border-radius: 3px;
+      color: #035e63;
+      cursor: pointer;
+    }
+
+    .reset-btn:hover {
+      color: #00474b;
+      background-color: #9fe8df;
+    }
+
+    // .reset-btn.active {
+    //   background-color: #26c2ad;
+    //   color: #004d4b;
+    // }
+  }
+}
+
+// Remove input type number default
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

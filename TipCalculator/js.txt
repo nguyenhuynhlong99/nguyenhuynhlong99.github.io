@@ -1,0 +1,81 @@
+let billAmount = document.getElementById("billAmount");
+let numOfPeople = document.getElementById("numOfPeople");
+
+let tipAmmountperPerson = document.getElementById("tipAmmountperPerson");
+let totalPerPerson = document.getElementById("totalPerPerson");
+const customTip = document.getElementById('customTip');
+
+const tipButtons = document.querySelectorAll('.percentage');
+let reset = document.getElementById('reset');
+let errorOne =  document.getElementById('errorOne');
+let errorTwo = document.getElementById('errorTwo');
+
+tipButtons.forEach( btn => {
+    btn.addEventListener('click', ()=> {
+
+        let [tip] = (btn.value.split('%'));
+        let tipAmmount = 0;
+        let totalPerson = 0;
+
+        if(billAmount.value != 0 && numOfPeople.value != 0){
+            tipAmmount = (billAmount.value / numOfPeople.value) * (tip/100);
+            totalPerson = (billAmount.value / numOfPeople.value) + tipAmmount;
+            tipAmmountperPerson.innerText = `$${(Math.round(tipAmmount * 100) / 100).toFixed(2) }`;
+            totalPerPerson.innerText = `$${(Math.round(totalPerson * 100) / 100).toFixed(2) }`;
+        }else if(billAmount.value == 0 && numOfPeople.value == 0){
+            billAmount.classList.add("danger")
+            numOfPeople.classList.add("danger")
+            errorOne.classList.add('error');
+            errorTwo.classList.add('error');
+        }
+        else if (billAmount.value == 0) {
+            errorOne.classList.add('error');
+            billAmount.classList.add("danger")
+            
+        }else if (numOfPeople.value == 0) {
+            numOfPeople.classList.add("danger")
+            errorTwo.classList.add('error');
+        }
+
+    })
+})
+
+
+reset.addEventListener('click', () => {
+    tipAmmountperPerson.innerText = '$0.00';
+    totalPerPerson.innerText ='$0.00';
+    billAmount.value = 0;
+    numOfPeople.value = 0;
+    billAmount.classList.remove("danger")
+    numOfPeople.classList.remove("danger")
+    errorOne.classList.remove('error');
+    errorTwo.classList.remove('error');
+});
+
+customTip.addEventListener('input', (e)=>{
+
+    let tipAmmount = 0;
+    let totalPerson = 0;
+
+        if(billAmount.value != 0 && numOfPeople.value != 0){
+            tipAmmount = (billAmount.value / numOfPeople.value) * (customTip.value/100);
+            totalPerson = (billAmount.value / numOfPeople.value) + tipAmmount;
+            tipAmmountperPerson.innerText = `$${(Math.round(tipAmmount * 100) / 100).toFixed(2) }`;
+            totalPerPerson.innerText = `$${(Math.round(totalPerson * 100) / 100).toFixed(2) }`;
+        }else if(billAmount.value == 0 && numOfPeople.value == 0){
+            billAmount.classList.add("danger")
+            numOfPeople.classList.add("danger")
+            errorOne.classList.add('error');
+            errorTwo.classList.add('error');
+        }
+        else if (billAmount.value == 0) {
+            errorOne.classList.add('error');
+            billAmount.classList.add("danger")
+            
+        }else if (numOfPeople.value == 0) {
+            numOfPeople.classList.add("danger")
+            errorTwo.classList.add('error');
+        }
+
+
+})

@@ -1,0 +1,27 @@
+@media (max-width: 1023px) {
+  .app-container {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  form {
+    width: 100%;
+  }
+  .right-side {
+    width: 100%;
+  }
+}
+
+@media (max-width: 739px) {
+  .tip-btn {
+    min-width: calc((100% / 2) - 10px);
+  }
+  .tip-custom {
+    min-width: calc((100% / 2) - 10px);
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
